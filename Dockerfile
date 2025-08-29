@@ -1,6 +1,6 @@
 # --- ステージ1：ビルド環境 ---
-# Maven（ビルドツール）とJava 17（JDK）を含むイメージを土台にする
-FROM maven:3.8.5-openjdk-17 AS builder
+# Java 17環境からJava 21環境にアップグレード
+FROM maven:3.9.6-eclipse-temurin-21 AS builder
 
 # 作業ディレクトリを作成
 WORKDIR /app
@@ -16,8 +16,8 @@ COPY src ./src
 RUN mvn package -DskipTests
 
 # --- ステージ2：実行環境 ---
-# Javaを実行するだけの軽量なイメージを土台にする
-FROM eclipse-temurin:17-jre-jammy
+# こちらも念のためJava 21環境に合わせる
+FROM eclipse-temurin:21-jre-jammy
 
 # 作業ディレクトリを作成
 WORKDIR /app
