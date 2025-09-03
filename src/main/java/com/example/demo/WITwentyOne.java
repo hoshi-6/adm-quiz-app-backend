@@ -46,6 +46,9 @@ public class WITwentyOne {
     @Column(name = "explanation")
     private String explanation;
     
+    @Column(name = "tips")
+    private String tips;
+    
     // --- GetterとSetterは変更なし ---
     
 	public Long getId() {
@@ -134,5 +137,13 @@ public class WITwentyOne {
 	
 	public void setExplanation(String explanation) {
 		this.explanation = explanation;
+	}
+
+	public String getTips() {
+		return tips;
+	}
+
+	public void setTips(String tips) {
+		this.tips = tips;
 	}
 }
